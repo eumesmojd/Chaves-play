@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script src="/views/assets/js/block.js"></script> <!-- Seu script de bloqueio -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="theme-color" content="#222222">
+    <title>chaves | Online Player</title>
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,100,100italic,300,300italic,400italic,500,500italic,700italic,700,900,900italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+    <style>
+        /* Cole aqui todo o CSS que você tinha para a página do player */
+        /* Exemplo abreviado: */
+        a,b,body,button,div,form,h1,h2,h3,h4,h5,h6,html,iframe,img,input,li,p,span,ul{border:0;margin:0;padding:0;outline:0}*{box-sizing:border-box}ul{list-style:none}a{color:#fff;text-decoration:none}html{font-size:100%}body{color:#fff;font-size:.875rem;font-weight:300;line-height:1.5;background-color:#111;font-family:Montserrat,sans-serif;background-size:cover;background-position:center;background-attachment:fixed;position:relative;min-height:100vh;display:flex;flex-direction:column}.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.75);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:-1}.content-wrapper{flex-grow:1;width:90%;margin:0 auto;max-width:1024px;position:relative;z-index:1;padding-top:1rem;padding-bottom:1rem}.header{width:100%;line-height:60px;text-align:center;background-color:#610abb;margin-bottom:1rem}.header a{font-size:2em;color:#fff;font-weight:700;text-transform:uppercase}.footer{width:100%;text-align:center;background-color:#181818;margin-top:auto}.footer p{color:#999;padding:15px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}#player-area{background-color:#333;border-bottom:3px solid rgba(0,0,0,.2);margin-bottom:30px;padding:15px}.player-selector{text-align:center;margin-bottom:15px}.player-selector h3{margin-bottom:10px;font-size:1.1rem}.player-options{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.player-btn{padding:10px 15px;background-color:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:5px;cursor:pointer;transition:background-color .3s ease,border-color .3s ease;font-size:.9rem}.player-btn:hover{background-color:rgba(255,255,255,.2)}.player-btn.active{background-color:#610abb;border-color:#4a088c;font-weight:700}.player-btn:disabled{background-color:rgba(100,100,100,.2);border-color:rgba(100,100,100,.4);color:#888;cursor:not-allowed}.player-btn i{margin-right:8px}.quality-tag{margin-left:5px;padding:2px 5px;background-color:#ffc107;color:#111;border-radius:3px;font-size:.75rem}#player-container{position:relative;width:100%;padding-bottom:56.25%;height:0;background-color:#000}#player-container iframe{position:absolute;top:0;left:0;width:100%;height:100%}.loading-screen{position:absolute;top:0;left:0;width:100%;height:100%;background-color: black ;display:flex;justify-content:center;align-items:center;z-index:10;flex-direction:column}.loading-spinner{border:4px solid rgba(255,255,255,.3);border-top:4px solid #fff;border-radius:50%;width:40px;height:40px;animation:spin .8s linear infinite;margin-bottom:15px}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.loading-screen p{font-size:1.1rem;color:#fff;text-align:center}.hided{display:none!important}.warning-container{width:100%;text-align:center;background-color:#333;border-bottom:3px solid rgba(0,0,0,.2);margin-bottom:1rem}.warning-container h3{padding:17px 15px;letter-spacing:.5px;text-transform:uppercase}#noscript-content{background-color:#333;color:#fff;padding:20px;text-align:center;margin:20px auto;max-width:800px;border-radius:5px;border:1px solid #555}#noscript-content h2{margin-bottom:15px;font-size:1.5rem}#noscript-content p{margin-bottom:10px;line-height:1.6}#noscript-content a{color:#ffc107;text-decoration:underline}#noscript-content .movie-details{margin-top:20px;padding-top:20px;border-top:1px solid #555}
+    </style>
+</head>
+<body style="background-image: url('https://m.media-amazon.com/images/M/MV5BYzZkZGU3ZTctNDM0MS00OTIxLWIzYmQtNzljMTQwNThiMjU0XkEyXkFqcGc@._V1_FMjpg_UX1280_.jpg');">
+    <div class="overlay"></div>
+    <div class="header"><a href="/">S3ries & Film3s</a></div>
+    <div class="content-wrapper">
+        <div class="warning-container hided" id="warning-container"> <h3 id="warning-message">Aviso!</h3> </div>
+        <!-- Ad Slots (opcional) -->
+        <div id="player-area">
+            <div class="player-selector">
+                <h3>Escolha o Player:</h3>
+                <div class="player-options">
+                    <button class="player-btn" data-player="1" ><i class="fas fa-play-circle"></i> Player 1 <span class="quality-tag">+SBT</span></button>
+                    <button class="player-btn" data-player="2" ><i class="fas fa-play-circle"></i> Player 2 <span class="quality-tag">PRIME VIDEO</span></button>
+                    <button class="player-btn" data-player="3" ><i class="fas fa-play-circle"></i> Player 3 <span class="quality-tag">OPÇÃO ALT</span></button>
+                </div>
+            </div>
+            <div id="player-container">
+                <div class="loading-screen" id="loadingScreen"><div class="loading-spinner"></div><p>Carregando Player...</p></div>
+                <iframe id="videoPlayer" src="" frameborder="0" scrolling="no" allowFullScreen mozallowfullscreen msallowfullscreen oallowfullscreen webkitallowfullscreen allow='autoplay; encrypted-media' referrerpolicy="no-referrer"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="footer"><p>© 2025 S3ries & Film3s. Todos os direitos reservados.</p></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        (function($, window, document, phpVars) {
+            'use strict';
+            // JavaScript do Player (COMO ANTES)
+            const { playerUrls, initialPlayerId, noPlayerAvailableMsg } = phpVars;
+            const $loadingScreen = $('#loadingScreen');
+            const $videoPlayer = $('#videoPlayer');
+            const $playerButtons = $('.player-btn');
+            const $warningContainer = $('#warning-container');
+            const $warningMessage = $('#warning-message');
+
+            function showGenericNotification(message, type = 'info') { console.log(`Notification (${type}): ${message}`); $warningMessage.text(message); $warningContainer.removeClass('hided'); }
+            function changePlayer(playerId) { const targetPlayerUrl = playerUrls[playerId]; if (!targetPlayerUrl) { showGenericNotification(`Player ${playerId} não está disponível.`, 'error'); if (playerId !== initialPlayerId && playerUrls[initialPlayerId]) { setTimeout(() => changePlayer(initialPlayerId), 100); } else { $loadingScreen.show(); $loadingScreen.find('p').text(noPlayerAvailableMsg); $loadingScreen.find('.loading-spinner').hide(); $videoPlayer.attr('src', 'about:blank'); } return; } $loadingScreen.show().find('p').text(`Carregando Player ${playerId}...`); $loadingScreen.find('.loading-spinner').show(); $videoPlayer.attr('src', 'about:blank').attr('src', targetPlayerUrl); $playerButtons.removeClass('active'); const $activeButton = $(`.player-btn[data-player="${playerId}"]`); if ($activeButton.length) { $activeButton.addClass('active'); } localStorage.setItem('preferredPlayer', playerId); }
+            function hideLoadingScreen() { $loadingScreen.hide(); }
+            $videoPlayer.on('load', function() { hideLoadingScreen(); });
+            $videoPlayer.on('error', function() { hideLoadingScreen(); const currentPlayerId = parseInt($('.player-btn.active').data('player') || initialPlayerId); showGenericNotification(`Erro ao carregar Player ${currentPlayerId}. Tente outra opção.`, 'error'); });
+            $playerButtons.on('click', function() { if ($(this).is(':disabled') || $(this).hasClass('active')) return; const selectedPlayerId = parseInt($(this).data('player')); changePlayer(selectedPlayerId); });
+            function initializePlayer() { let playerToLoad = initialPlayerId; const preferredPlayer = localStorage.getItem('preferredPlayer'); if (preferredPlayer && playerUrls[parseInt(preferredPlayer)]) { playerToLoad = parseInt(preferredPlayer); } else if (!playerUrls[initialPlayerId]) { let found = false; for (const idKey in playerUrls) { const id = parseInt(idKey); if (playerUrls[id]) { playerToLoad = id; found = true; break; } } if (!found) { $loadingScreen.show(); $loadingScreen.find('p').text(noPlayerAvailableMsg); $loadingScreen.find('.loading-spinner').hide(); $playerButtons.prop('disabled', true); return; } } changePlayer(playerToLoad); }
+            $(function() { initializePlayer(); });
+        })(jQuery, window, document, {"playerUrls":{"1":"seleEP(+sbt).html","2":"player2.html","3":"http://www.playcinevs.info/s/210618/412089"},"initialPlayerId":3,"noPlayerAvailableMsg":"Nenhum player dispon\u00edvel para este filme."});
+    </script>
+    <noscript>
+        <div id="noscript-content">
+            <h2>JavaScript Desabilitado</h2>
+            <p>Para assistir ao filme "<strong>Lilo &amp; Stitch</strong>", por favor, habilite o JavaScript no seu navegador e <a href="/views/assistir/15181/lilo-stitch?id=15181&amp;slug=lilo-stitch&amp;token=8ffc60e59cd1683c7f7a298c517850ec55bc8687eb4734ae4746c3b3c4025ec3">recarregue a página</a>.</p>
+                        <div class="movie-details"><h3>Detalhes do Filme:</h3><p><strong>Título:</strong> Lilo &amp; Stitch</p></div>
+                    </div>
+    </noscript>
+</body>
+</html>
