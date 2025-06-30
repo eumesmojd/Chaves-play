@@ -59,7 +59,7 @@
             $playerButtons.on('click', function() { if ($(this).is(':disabled') || $(this).hasClass('active')) return; const selectedPlayerId = parseInt($(this).data('player')); changePlayer(selectedPlayerId); });
             function initializePlayer() { let playerToLoad = initialPlayerId; const preferredPlayer = localStorage.getItem('preferredPlayer'); if (preferredPlayer && playerUrls[parseInt(preferredPlayer)]) { playerToLoad = parseInt(preferredPlayer); } else if (!playerUrls[initialPlayerId]) { let found = false; for (const idKey in playerUrls) { const id = parseInt(idKey); if (playerUrls[id]) { playerToLoad = id; found = true; break; } } if (!found) { $loadingScreen.show(); $loadingScreen.find('p').text(noPlayerAvailableMsg); $loadingScreen.find('.loading-spinner').hide(); $playerButtons.prop('disabled', true); return; } } changePlayer(playerToLoad); }
             $(function() { initializePlayer(); });
-        })(jQuery, window, document, {"playerUrls":{"1":"seleEP(+sbt).html","2":"Prime-video/player2.html","3":"http://www.playcinevs.info/s/210618/412089"},"initialPlayerId":3,"noPlayerAvailableMsg":"Nenhum player dispon\u00edvel para este filme."});
+        })(jQuery, window, document, {"playerUrls":{"1":"seleEP(+sbt).html","2":"seleEP(prime).html","3":"http://www.playcinevs.info/s/210618/412089"},"initialPlayerId":3,"noPlayerAvailableMsg":"Nenhum player dispon\u00edvel para este filme."});
     </script>
     <noscript>
         <div id="noscript-content">
