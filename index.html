@@ -19,7 +19,7 @@
 </head>
 <body style="background-image: url('https://m.media-amazon.com/images/M/MV5BYzZkZGU3ZTctNDM0MS00OTIxLWIzYmQtNzljMTQwNThiMjU0XkEyXkFqcGc@._V1_FMjpg_UX1280_.jpg');">
     <div class="overlay"></div>
-    <div class="header"><a href="/">S3ries & Film3s</a></div>
+    <div class="header"><a href="/">eumesmojd - Chaves play</a></div>
     <div class="content-wrapper">
         <div class="warning-container hided" id="warning-container"> <h3 id="warning-message">Aviso!</h3> </div>
         <!-- Ad Slots (opcional) -->
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <div class="footer"><p>© 2025 S3ries & Film3s. Todos os direitos reservados.</p></div>
+    <div class="footer"><p>© 2025 eumesmojd. Todos os direitos reservados.</p></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         (function($, window, document, phpVars) {
@@ -59,13 +59,13 @@
             $playerButtons.on('click', function() { if ($(this).is(':disabled') || $(this).hasClass('active')) return; const selectedPlayerId = parseInt($(this).data('player')); changePlayer(selectedPlayerId); });
             function initializePlayer() { let playerToLoad = initialPlayerId; const preferredPlayer = localStorage.getItem('preferredPlayer'); if (preferredPlayer && playerUrls[parseInt(preferredPlayer)]) { playerToLoad = parseInt(preferredPlayer); } else if (!playerUrls[initialPlayerId]) { let found = false; for (const idKey in playerUrls) { const id = parseInt(idKey); if (playerUrls[id]) { playerToLoad = id; found = true; break; } } if (!found) { $loadingScreen.show(); $loadingScreen.find('p').text(noPlayerAvailableMsg); $loadingScreen.find('.loading-spinner').hide(); $playerButtons.prop('disabled', true); return; } } changePlayer(playerToLoad); }
             $(function() { initializePlayer(); });
-        })(jQuery, window, document, {"playerUrls":{"1":"seleEP(+sbt).html","2":"seleEP(prime).html","3":"http://www.playcinevs.info/s/210618/412089"},"initialPlayerId":3,"noPlayerAvailableMsg":"Nenhum player dispon\u00edvel para este filme."});
+        })(jQuery, window, document, {"playerUrls":{"1":"seleEP(+sbt).html","2":"seleEP(prime).html","3":""},"initialPlayerId":3,"noPlayerAvailableMsg":"Nenhum player dispon\u00edvel para este filme."});
     </script>
     <noscript>
         <div id="noscript-content">
             <h2>JavaScript Desabilitado</h2>
-            <p>Para assistir ao filme "<strong>Lilo &amp; Stitch</strong>", por favor, habilite o JavaScript no seu navegador e <a href="/views/assistir/15181/lilo-stitch?id=15181&amp;slug=lilo-stitch&amp;token=8ffc60e59cd1683c7f7a298c517850ec55bc8687eb4734ae4746c3b3c4025ec3">recarregue a página</a>.</p>
-                        <div class="movie-details"><h3>Detalhes do Filme:</h3><p><strong>Título:</strong> Lilo &amp; Stitch</p></div>
+            <p>Para assistir ao Seriado "<strong>Chaves</strong>", por favor, habilite o JavaScript no seu navegador e <a href="https://eumesmojd.github.io/Chaves-play/">recarregue a página</a>.</p>
+                        <div class="movie-details"><h3>Detalhes do Seriado:</h3><p><strong>Título:</strong>Chaves</p></div>
                     </div>
     </noscript>
 </body>
