@@ -1,0 +1,94 @@
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Play</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CSS do Shaka Player UI -->
+  <link rel="stylesheet"
+        href="https://shaka-player-demo.appspot.com/dist/controls.css" />
+  <!-- Core do Shaka Player -->
+  <script src="https://nightly-dot-shaka-player-demo.appspot.com/dist/shaka-player.compiled.js"></script>
+  <!-- Shaka Player UI -->
+  <script src="https://nightly-dot-shaka-player-demo.appspot.com/dist/shaka-player.ui.js"></script>
+  <style>
+    /* Fullscreen, sem margens */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+    /* Container do vídeo */
+    #video-container {
+      position: fixed;
+      top: 0;
+      left: 50;
+      width: 100%;
+      height: 100%;
+    }
+    /* Vídeo em modo “contain” (mantém proporção com barras) */
+    #video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <div id="video-container">
+    <video id="video" autoplay></video>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1) Instala polyfills EME/MSE
+      shaka.polyfill.installAll();
+
+      // 2) Obtém referências
+      const video     = document.getElementById('video');
+      const container = document.getElementById('video-container');
+
+      // 3) Cria instâncias do player e da UI
+      const player = new shaka.Player(video);
+      const ui     = new shaka.ui.Overlay(player, container, video);
+
+      // 4) Configura o License Server Widevine
+      player.configure({
+        drm: {
+          servers: {
+            'com.widevine.alpha': 'license.php?v=L3Nob3dzL3ZpZGVvL21GSlVvbWZTUGZSS2JBeU5QaE5uUGx6TGtyc2RXQXRhLw=='
+          }
+          // Se precisar enviar headers customizados, descomente:
+          /*
+          advanced: {
+            'com.widevine.alpha': {
+              licenseRequestHeaders: {
+                'X-Api-Key': 'SEU_API_KEY_AQUI'
+              }
+            }
+          }
+          */
+        }
+      });
+
+      // 5) URL completa do manifesto HLS cifrado com Widevine
+      const manifestUri = 'https://view.sbtcdn.workers.dev/0:/6371471764112_720.mp4';
+
+      // 6) Carrega o stream
+      try {
+        await player.load(manifestUri);
+        console.log('✔ Vdeo carregado com sucesso!');
+      } catch (e) {
+        console.error('❌ Erro ao carregar vídeo:', e);
+      }
+
+      // 7) (Opcional) Define idioma padrão de áudio e legendas
+      player.selectAudioLanguage('pt-BR');
+      player.selectTextLanguage ('pt-BR');
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9398d2a0daafd891',t:'MTc0NjIwMjU4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
